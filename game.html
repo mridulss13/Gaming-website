@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gaming Arena</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="row mt-3">
+    <div class="col-md-4">
+      <div class="card bg-white ">
+        <img src="otp.jpg" class="card-img-top border border-dark" height="300px"alt="OTP">
+        <div class="card-body bg-dark">
+          <h5 class="card-title text-white">OTP GENERATOR</h5>
+          <p class="card-text bg-white text-dark fs-3 text-center w-50 mx-auto" id="p1">-----</p>
+          <button class="btn btn-success bg-gradient" onclick="otp()">OTP</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card bg-info ">
+        <img src="dice.png" class="card-img-top border border-dark" height="300px" alt="OTP">
+        <div class="card-body bg-dark">
+          <h5 class="card-title text-white">ROLL THE DICE</h5>
+          <p class="card-text bg-white text-dark fs-3 text-center w-50 mx-auto" id="p2">--</p>
+          <button class="btn btn-dark bg-success" onclick="dice()">DICE</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card bg-primary ">
+        <img src="rps.webp" class="card-img-top border border-dark" height="300px" alt="OTP">
+        <div class="card-body bg-dark">
+          <h5 class="card-title text-white">ROCK PAPER SCISSORS</h5>
+          <p class="card-text bg-white text-dark fs-3 text-center w-60 mx-auto" id="p3">-----</p>
+          <button class="btn btn-success bg-gradient" onclick="rps(1)">ROCK</button>
+          <button href="#" class="btn btn-success bg-gradient" onclick="rps(2)">PAPER</button>
+          <button class="btn btn-success bg-gradient" onclick="rps(3)">SCISSORS</button>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-3">
+      <div class="row mt-2">
+        <div class="col-md-4">
+          <div class="card bg-primary ">
+            <img src="atm.jpeg" class="card-img-top border border-dark" height="300px" alt="OTP">
+            <div class="card-body bg-dark">
+              <h5 class="card-title text-white">ATM PIN GENERATOR</h5>
+              <p class="card-text bg-white text-dark fs-3 text-center w-50 mx-auto border border-dark" id="p4">----
+              </p>
+              <button class="btn btn-dark bg-success text-white" onclick="atm()">ATM PIN </button>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card bg-primary ">
+            <img src="seccode.png" class="card-img-top border border-dark" height="300px" alt="OTP">
+            <div class="card-body bg-dark">
+              <h5 class="card-title text-light">SECRET CODE GENERATOR</h5>
+              <p class="card-text bg-white text-dark fs-3 text-center w-50 mx-auto border border-info " id="p5">----
+              </p>
+              <button class="btn btn-primary bg-success text-white" onclick="code()">SECRET CODE</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card bg-primary ">
+            <img src="passward.webp" class="card-img-top border border-dark" height="300px" alt="OTP">
+            <div class="card-body bg-dark">
+              <h5 class="card-title text-white">PASSWORD GENERATOR</h5>
+              <p class="card-text bg-white text-dark fs-3 text-center w-50 mx-auto" id="p6">--------</p>
+              <button class="btn btn-primary bg-success text-white" onclick="pass()">PASSWORD</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function otp() {
+      let ans = Math.floor(Math.random() * (99999 - 10000 + 1)) + 10000;
+      document.getElementById("p1").innerHTML = ans;
+    }
+
+    function dice() {
+      let ans = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
+      document.getElementById("p2").innerHTML = ans;
+    }
+
+    function rps(userinput) {
+      let compinput = Math.floor(Math.random() * (3)) + 1;
+      if (userinput == compinput)
+        document.getElementById("p3").innerHTML = "Tie";
+
+      else if ((userinput == 1 && compinput == 3) || (userinput == 2 && compinput == 1) || (userinput == 3 && compinput == 2)) {
+        document.getElementById("p3").innerHTML = "User Win";
+      }
+
+      else {
+        document.getElementById("p3").innerHTML = "Computer Win";
+      }
+    }
+
+    function atm() {
+      let ans = Math.floor(Math.random() * (9999 - 1000)) + 1000;
+      document.getElementById("p4").innerHTML = ans;
+    }
+
+    function code() {
+      let a = String.fromCharCode(Math.floor(Math.random() * (90 - 65)) + 65);
+      let b = Math.floor(Math.random() * (9 - 0)) + 0;
+      let c = Math.floor(Math.random() * (9 - 0)) + 0;
+      let d = String.fromCharCode(Math.floor(Math.random() * (122 - 97)) + 97);
+
+      document.getElementById("p5").innerHTML = a + b + c + d;
+    }
+
+    function pass() {
+      let a = String.fromCharCode(Math.floor(Math.random() * (90 - 65)) + 65);
+      let b = String.fromCharCode(Math.floor(Math.random() * (37 - 32)) + 32);
+      let c = Math.floor(Math.random() * (9 - 0)) + 0;
+      let d = String.fromCharCode(Math.floor(Math.random() * (122 - 97)) + 97);
+      let e = String.fromCharCode(Math.floor(Math.random() * (64 - 58)) + 58);
+      let f = Math.floor(Math.random() * (9 - 0)) + 0;
+      let g = String.fromCharCode(Math.floor(Math.random() * (122 - 97)) + 97);
+      let h = String.fromCharCode(Math.floor(Math.random() * (96 - 91)) + 91);
+
+      document.getElementById("p6").innerHTML = a + b + c + d + e + f + g + h;
+    }
+
+  </script>
+</body>
+
+</html>
